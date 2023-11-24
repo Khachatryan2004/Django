@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- Class Timetable Start -->
+<div class="container-fluid p-5">
+    <div class="mb-5 text-center">
+        <h1 class="display-3 text-uppercase mb-0">Leagues</h1>
+    </div>
+    <div class="tab-class text-center">
+        <div class="tab-content">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+                <div class="row g-5">
+                    {% for league in leagues %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="{% url 'league-detail' league.pk %}">
+                            <div class="bg-dark rounded text-center py-5 px-3">
+                                <h6 class="text-uppercase text-light mb-3">{{ league.country }}</h6>
+                                <h5 class="text-uppercase text-primary">{{ league.name }}</h5>
+                                <p class="text-uppercase text-secondary mb-0"><img src="{{ league.logo.url }}"
+                                                                                   style="width: 53px; height: 36px">
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Class Timetable Start -->
+
+
+<!-- Facts Start -->
+<div class="container-fluid bg-dark facts p-5 my-5">
+    <div class="row gx-5 gy-4 py-5">
+        <div class="col-lg-3 col-md-6">
+            <div class="d-flex">
+                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                     style="width: 60px; height: 60px;">
+                    <i class="fa fa-star fs-4 text-white"></i>
+                </div>
+                <div class="ps-4">
+                    <h5 class="text-secondary text-uppercase">Experience</h5>
+                    <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="d-flex">
+                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                     style="width: 60px; height: 60px;">
+                    <i class="fa fa-users fs-4 text-white"></i>
+                </div>
+                <div class="ps-4">
+                    <h5 class="text-secondary text-uppercase">Our Trainers</h5>
+                    <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="d-flex">
+                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                     style="width: 60px; height: 60px;">
+                    <i class="fa fa-check fs-4 text-white"></i>
+                </div>
+                <div class="ps-4">
+                    <h5 class="text-secondary text-uppercase">Complete Project</h5>
+                    <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="d-flex">
+                <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center mb-3"
+                     style="width: 60px; height: 60px;">
+                    <i class="fa fa-mug-hot fs-4 text-white"></i>
+                </div>
+                <div class="ps-4">
+                    <h5 class="text-secondary text-uppercase">Happy Clients</h5>
+                    <h1 class="display-5 text-white mb-0" data-toggle="counter-up">12345</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Facts End -->
+
+{% endblock %}
+
+

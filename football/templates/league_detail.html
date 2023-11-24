@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<!-- About Start -->
+<div class="container-fluid p-5">
+    <div class="row gx-5">
+        <div class="col-lg-5 mb-5 mb-lg-0" style="min-height: 350px;">
+            <div class="position-relative h-100">
+                <img class="position-absolute w-100 h-100 rounded" src="{{ league.logo.url }}"
+                     style="object-fit: cover;">
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="mb-4">
+                <h5 class="text-primary text-uppercase">{{ league.country }}</h5>
+                <h1 class="display-3 text-uppercase mb-0">{{ league.name }}</h1>
+            </div>
+            <h4 class="text-body mb-4">{{ league.description }}</h4>
+            <p class="mb-4">{{ league.created_at }}</p>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<!-- Class Timetable Start -->
+<div class="container-fluid p-5">
+    <div class="mb-5 text-center">
+        <h1 class="display-3 text-uppercase mb-0">Clubs</h1>
+    </div>
+    <div class="tab-class text-center">
+        <div class="tab-content">
+            <div id="tab-1" class="tab-pane fade show p-0 active">
+                <div class="row g-5">
+                    {% for club in clubs %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <a href="{% url 'league-detail' league.pk %}">
+                            <div class="bg-dark rounded text-center py-5 px-3">
+                                <h6 class="text-uppercase text-light mb-3">{{ club.stadium_name }}</h6>
+                                <h5 class="text-uppercase text-primary">{{ club.name }}</h5>
+                                <p class="text-uppercase text-secondary mb-0"><img src="{{ club.club_logo.url }}"
+                                                                                   style="width: 53px; height: 36px">
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Class Timetable Start -->
+
+{% endblock %}
